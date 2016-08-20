@@ -1,7 +1,10 @@
+
 # team-building
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.15.1.
+
+In order to run this app, simply download the repository in your favorite folder and (assuming you have installed grunt):
 
 ## Build & development
 
