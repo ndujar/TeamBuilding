@@ -1,0 +1,43 @@
+<section>
+<div class="container">
+	<form>
+	  <h2>New Team</h2>
+	  <fieldset>
+	    <label>
+	      Team name
+	      <input ng-model="ctrl.team.name">
+	    </label>
+	    
+	    <button  type="button" class="btn btn-primary" ng-click="ctrl.save()">Save</button>
+	  </fieldset>
+	</form>
+	<h2>Teams</h2>         
+		<table class="table table-hover">
+		<tbody>
+			<thead>
+			<th>
+		        <button ng-click="sortBy('name')">Name</button>
+		        <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+		      	</th>
+		      	<th>
+		        <button ng-click="sortBy('id')">ID Number</button>
+		        <span class="sortorder" ng-show="propertyName === 'id'" ng-class="{reverse: reverse}"></span>
+		      	</th>
+		      	
+			  <!-- 	<tr>
+			       	<th>Team <a href="#/teams" ng-click="sort">Sort</a>   </th>
+			       	<th>Action</th>
+			  	</tr>-->
+			</thead>
+			<tr ng-repeat="team in teamList | orderBy:propertyName:reverse">
+		      <td>{{team.name}}</td>
+		      <td>{{team.id}}</td>
+		      <td>
+				<a href="#/teams" ng-click="deleteTeam(team.id)">delete</a>      
+		      </td>
+		    </tr>
+			
+	
+		</tbody>
+	</table>
+</section>

@@ -1,0 +1,44 @@
+<section>
+<div class="container">
+	<form>
+	  <h2>New user</h2>
+	  <fieldset>
+	    <label>
+	      First name
+	      <input ng-model="ctrl.user.firstName">
+	    </label>
+	    <label>
+	      Last name
+	      <input ng-model="ctrl.user.surName">
+	    </label>
+	    Choose a team
+	    <select  class="btn btn-secondary dropdown-toggle"  ng-model="ctrl.user.team">
+      		<option ng-repeat="team in teamList" value="{{team.name}}" >{{team.name}}</option>
+    	</select>
+	    <button  type="button" class="btn btn-primary" ng-click="ctrl.save()">Save</button>
+	  </fieldset>
+	</form>
+	<h2>Users</h2>  
+		Enter first name search: <input type="text" ng-model="search.firstName">      
+		<table class="table table-hover">
+		<tbody>
+			<thead>
+			  	<tr>
+			       	<th>First name</th>
+			       	<th>Last name</th>
+			       	<th>Team</th>
+			       	<th>Action</th>
+			  	</tr>
+			</thead>
+			
+		   	<tr ng-repeat="user in userList | filter:search:strict">
+		  	<td>{{user.firstName}}</td>
+		    <td>{{user.surName}}</td>
+		    <td>{{user.team}}</td>
+			<td>
+				<a href="#/users" ng-click="deleteUser(user.id)">delete</a>      
+		    </td>
+			</tr> 
+		</tbody>
+	</table>
+</section>
